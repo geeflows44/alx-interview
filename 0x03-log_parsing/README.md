@@ -1,18 +1,21 @@
-Tasks
-0. Log parsing
-Write a script that reads stdin line by line and computes metrics:
+## 0x03. Log Parsing
+![Log parsing](https://camo.githubusercontent.com/9dec94e8b45ed1acd34dc3d90db7bf77581fe78083480fe3018d5899a5c79126/68747470733a2f2f69312e77702e636f6d2f7777772e6c6561726e73746570732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031392f31302f6c6f6770617273696e672e706e673f773d3834302673736c3d31)
+## Tasks
+## 0. Log parsing
+Write a script that reads `stdin` line by line and computes metrics:
 
-Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size> (if the format is not this one, the line must be skipped)
-After every 10 lines and/or a keyboard interruption (CTRL + C), print these statistics from the beginning:
-Total file size: File size: <total size>
-where <total size> is the sum of all previous <file size> (see input format above)
-Number of lines by status code:
-possible status code: 200, 301, 400, 401, 403, 404, 405 and 500
-if a status code doesn’t appear or is not an integer, don’t print anything for this status code
-format: <status code>: <number>
-status codes should be printed in ascending order
-Warning: In this sample, you will have random value - it’s normal to not have the same output as this one.
++ Input format: `<IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>` (if the format is not this one, the line must be skipped)
++ After every 10 lines and/or a keyboard interruption `(CTRL + C)`, print these statistics from the beginning:
+  - Total file size: `File size: <total size>`
+  - where `<total size>` is the sum of all previous `<file size>` (see input format above)
+  - Number of lines by status code:
+     * possible status code: `200`, `301`, `400`, `401`, `403`, `404`, `405` and `500`
+     + if a status code doesn’t appear or is not an integer, don’t print anything for this status code
+     - format: `<status code>: <number>`
+     - status codes should be printed in ascending order
 
+**Warning:** In this sample, you will have random value - it’s normal to not have the same output as this one.
+```
 alexa@ubuntu:~/0x03-log_parsing$ cat 0-generator.py
 #!/usr/bin/python3
 import random
@@ -74,3 +77,4 @@ KeyboardInterrupt
     sleep(random.random())
 KeyboardInterrupt
 alexa@ubuntu:~/0x03-log_parsing$ 
+```
